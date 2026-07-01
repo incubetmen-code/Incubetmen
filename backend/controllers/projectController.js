@@ -41,3 +41,18 @@ exports.getProjectById = (req, res) => {
     });
 
 };
+
+exports.deleteProject = (req,res)=>{
+
+    Project.deleteProject(req.params.id,function(err){
+
+        if(err)
+            return res.status(500).json(err);
+
+        res.json({
+            message:"Project berhasil dihapus"
+        });
+
+    });
+
+};
