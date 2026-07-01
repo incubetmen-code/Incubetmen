@@ -14,4 +14,4 @@ module.exports = router;
 
 router.get("/:id", projectController.getProjectById);
 
-router.delete("/:id", projectController.deleteProject);git add .
+router.delete("/:id", projectController.deleteProject);
