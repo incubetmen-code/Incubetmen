@@ -42,6 +42,25 @@ exports.getProjectById = (req, res) => {
 
 };
 
+// UPDATE PROJECT
+exports.updateProject = (req, res) => {
+
+    const id = req.params.id;
+    const { title } = req.body;
+
+    Project.updateProject(id, title, function(err) {
+
+        if (err)
+            return res.status(500).json(err);
+
+        res.json({
+            message: "Project berhasil diupdate"
+        });
+
+    });
+
+};
+
 exports.deleteProject = (req,res)=>{
 
     Project.deleteProject(req.params.id,function(err){

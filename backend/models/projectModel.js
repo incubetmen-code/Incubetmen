@@ -23,6 +23,15 @@ function getProjectById(id, callback) {
     );
 }
 
+// UPDATE PROJECT
+function updateProject(id, title, callback) {
+    db.run(
+        "UPDATE projects SET title = ? WHERE id = ?",
+        [title, id],
+        callback
+    );
+}
+
 // DELETE PROJECT
 function deleteProject(id, callback) {
     db.run(
@@ -36,5 +45,6 @@ module.exports = {
     getAllProjects,
     createProject,
     getProjectById,
+    updateProject,
     deleteProject
 };

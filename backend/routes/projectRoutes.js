@@ -14,4 +14,6 @@ module.exports = router;
 
 router.get("/:id", projectController.getProjectById);
 
+router.put("/:id", projectController.updateProject);
+
 router.delete("/:id", projectController.deleteProject);

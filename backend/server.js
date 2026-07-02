@@ -1,21 +1,22 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// ROUTES (nanti kita isi)
+// Serve Frontend
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// API Routes
 const projectRoutes = require("./routes/projectRoutes");
 app.use("/api/projects", projectRoutes);
 
+// Home
 app.get("/", (req, res) => {
-    res.json({
-        app: "IncuClipperStudio",
-        status: "running",
-        message: "REST API ready"
-    });
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 const PORT = 3000;
