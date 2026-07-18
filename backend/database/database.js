@@ -1,24 +1,31 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
+// lokasi file database
 const dbPath = path.join(__dirname, "incuclipper.db");
 
+// buat koneksi database (SINGLE INSTANCE ONLY)
 const db = new sqlite3.Database(dbPath, (err) => {
+
     if (err) {
-        console.error("❌ Database gagal:", err.message);
+        console.error("❌ Database gagal terhubung:", err.message);
     } else {
         console.log("✅ Database berhasil terhubung");
     }
+
 });
 
+// ==========================
+// INIT TABLES
+// ==========================
 db.serialize(() => {
 
     // USERS
     db.run(`
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT NULL,
-            email TEXT UNIQUE,
+            username TEXT,
+            email TEXT,
             password TEXT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
@@ -30,8 +37,8 @@ db.serialize(() => {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
             title TEXT,
-            status TEXT,
-            platform TEXT,
+            status TEXT DEFAULT 'Queued',
+            platform TEXT DEFAULT 'web',
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     `);
@@ -44,18 +51,18 @@ db.serialize(() => {
             original_name TEXT,
             file_path TEXT,
             duration INTEGER,
-            uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     `);
 
-    // CLIPS
+    // CLIPS (nanti AI pakai ini)
     db.run(`
         CREATE TABLE IF NOT EXISTS clips (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             video_id INTEGER,
-            clip_path TEXT,
             start_time REAL,
             end_time REAL,
+            clip_path TEXT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     `);
@@ -67,7 +74,7 @@ db.serialize(() => {
             clip_id INTEGER,
             export_path TEXT,
             resolution TEXT,
-            exported_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     `);
 

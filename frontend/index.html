@@ -2,36 +2,82 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>IncuClipperStudio</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="app">
 
-        <h1>🎬 IncuClipperStudio</h1>
+    <header>
 
-        <p>AI Video Clipper Platform</p>
+        <h1>INCUCLIPPER STUDIO</h1>
 
-        <button id="newProject">
-            + New Project
-        </button>
+        <span>AI Video Clipper Platform</span>
 
-        <hr>
+    </header>
 
-        <h2>Projects</h2>
+    <main>
 
-        <div id="projectList">
-            Belum ada project.
-        </div>
+        <section class="input-panel">
 
-    </div>
+            <input
+                type="text"
+                id="videoUrl"
+                placeholder="Paste Youtube / TikTok / Instagram URL">
 
-    <script src="js/app.js"></script>
+            <button id="startProcess">
+
+                START PROCESS
+
+            </button>
+
+        </section>
+
+        <section class="content">
+
+            <div class="queue">
+
+                <h3>QUEUE</h3>
+
+                <div id="queueList">
+
+                </div>
+
+            </div>
+
+            <div class="output">
+
+                <h3>OUTPUT</h3>
+
+                <div id="outputList">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="terminal">
+
+<pre id="terminalLog">incuclipper@studio:~$
+
+Waiting input...</pre>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/app.js"></script>
 
 </body>
 
