@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -176,4 +176,35 @@ button:hover{
 
     opacity:.8;
 
+} */
+
+#videoUrl{
+    border: none;
+    box-shadow: none;
+    border-radius: 0px !important;
+}
+
+#startProcess{
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.queue-item{
+    color: white;
+}
+
+.card-header{
+    color: #5262bc;
+}
+
+.output-info{
+    color: white;
+    text-align: certer;
+}
+
+.kanjut{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+    box-shadow: none;
 }

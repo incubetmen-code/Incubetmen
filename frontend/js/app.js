@@ -184,7 +184,7 @@ function renderClipItem(projectId, clip) {
     const clipUrl = buildClipUrl(clip.clip_path);
 
     const item = document.createElement("div");
-    item.className = "output-item";
+    item.className = "output-item text-center";
 
     // video dibuat lewat DOM API (bukan innerHTML), src di-set
     // langsung (cara standar HTML5), TANPA <source> dan TANPA
@@ -197,10 +197,11 @@ function renderClipItem(projectId, clip) {
     video.src = clipUrl;
 
     const info = document.createElement("div");
-    info.className = "output-info";
-    info.textContent = "Project " + projectId + " — " + clip.start_time + "s - " + clip.end_time + "s";
+    info.className = "output-info text-center";
+    info.textContent = "Project " + projectId + " - " + clip.start_time + "s - " + clip.end_time + "s";
 
     const downloadLink = document.createElement("a");
+    downloadLink.className = "btn btn-outline-primary kanjut w-100";
     downloadLink.href = clipUrl;
     downloadLink.setAttribute("download", "");
     downloadLink.textContent = "Download Clip";

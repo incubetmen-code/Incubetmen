@@ -8,76 +8,192 @@
 
     <title>IncuClipperStudio</title>
 
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-<body>
 
-<div class="app">
+<body class="bg-dark text-light">
 
-    <header>
 
-        <h1>INCUCLIPPER STUDIO</h1>
+<div class="container py-5">
 
-        <span>AI Video Clipper Platform</span>
+    <!-- HEADER -->
+    <header class="text-center mb-5">
+
+        <h1 class="fw-bold display-5">
+            INCUCLIPPER STUDIO
+        </h1>
+
+        <span class="text-secondary fs-5">
+            AI Video Clipper Platform
+        </span>
 
     </header>
 
+
+
     <main>
 
-        <section class="input-panel">
 
-            <input
-                type="text"
-                id="videoUrl"
-                placeholder="Paste Youtube / TikTok / Instagram URL">
+        <!-- INPUT PANEL -->
+        <section class="card bg-black border-secondary p-4 mb-4">
 
-            <button id="startProcess">
+            <div class="row g-3">
 
-                START PROCESS
+                <div class="col-md-9">
 
-            </button>
-
-        </section>
-
-        <section class="content">
-
-            <div class="queue">
-
-                <h3>QUEUE</h3>
-
-                <div id="queueList">
+                    <input
+                        type="text"
+                        id="videoUrl"
+                        class="form-control form-control-lg"
+                        placeholder="Paste Youtube / TikTok / Instagram URL">
 
                 </div>
 
-            </div>
 
-            <div class="output">
+                <div class="col-md-3">
 
-                <h3>OUTPUT</h3>
+                    <button 
+                        id="startProcess"
+                        class="btn btn-outline-primary btn-lg w-100">
 
-                <div id="outputList">
+                        START PROCESS
+
+                    </button>
 
                 </div>
 
+
             </div>
 
-        </section>
-
-        <section class="terminal">
-
-<pre id="terminalLog">incuclipper@studio:~$
-
-Waiting input...</pre>
 
         </section>
+
+
+
+
+        <!-- CONTENT -->
+        <section class="row g-4 mb-4">
+
+
+            <!-- QUEUE -->
+            <div class="col-md-6">
+
+                <div class="card bg-black border-secondary h-100">
+
+                    <div class="card-header fw-bold">
+                        QUEUE
+                    </div>
+
+
+                    <div class="card-body">
+
+                        <div id="queueList">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- OUTPUT -->
+            <div class="col-md-6">
+
+
+                <div class="card bg-black border-secondary h-100">
+
+
+                    <div class="card-header fw-bold">
+
+                        OUTPUT
+
+                    </div>
+
+
+                    <div class="card-body">
+
+
+                        <div id="outputList">
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+        <!-- TERMINAL -->
+
+        <section class="card bg-black border-secondary">
+
+
+            <div class="card-header fw-bold">
+
+                TERMINAL
+
+            </div>
+
+
+
+            <div class="card-body">
+
+
+<pre id="terminalLog" class="text-success mb-0">
+
+incuclipper@studio:~
+
+Waiting input...
+
+</pre>
+
+
+            </div>
+
+
+        </section>
+
+
 
     </main>
 
+
 </div>
 
+
+
+<!-- Bootstrap JS -->
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
 <script src="js/app.js"></script>
+
 
 </body>
 
